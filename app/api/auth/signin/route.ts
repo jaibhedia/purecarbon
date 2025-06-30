@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AuthService } from '@/lib/auth';
 import { initializeDatabase } from '@/lib/db';
 
+// This route should not be statically generated
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     // Initialize database if needed

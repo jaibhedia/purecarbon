@@ -37,9 +37,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       // In a real app, you'd validate the session with the server
       // For now, we'll just check if user data exists in localStorage
-      const userData = localStorage.getItem('user');
-      if (userData) {
-        setUser(JSON.parse(userData));
+      // Only access localStorage on the client side to avoid SSR issues
+      if (typeof window !== 'undefined') {
+        const userData = localStorage.getItem('user');
+        if (userData) {
+          setUser(JSON.parse(userData));
+        }
       }
     } catch (error) {
       console.error('Session check error:', error);

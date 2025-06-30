@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// This route should not be statically generated
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   return NextResponse.json({
     databaseUrl: process.env.DATABASE_URL ? 'Set ✅' : 'Not set ❌',
