@@ -284,9 +284,24 @@ export default function LandingPage({ onAuth }: LandingPageProps) {
                 <Leaf className="h-5 w-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">PureCarbon</span>
-              <Badge variant="outline" className="ml-2 text-xs">
-                Enterprise SaaS
-              </Badge>
+              <div className="flex items-center space-x-2">
+                <Badge variant="outline" className="text-xs">
+                  Enterprise SaaS
+                </Badge>
+                <a 
+                  href="https://bolt.new" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center"
+                >
+                  <Badge variant="outline" className="border-purple-500/20 text-purple-600 dark:text-purple-400 hover:border-purple-500/40 transition-colors cursor-pointer text-xs opacity-60 hover:opacity-100">
+                    <svg className="h-2.5 w-2.5 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Built with Bolt
+                  </Badge>
+                </a>
+              </div>
             </div>
             
             {/* Desktop Navigation */}
@@ -363,15 +378,29 @@ export default function LandingPage({ onAuth }: LandingPageProps) {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
+                className="flex flex-col items-center space-y-3"
               >
-                <Badge className="mb-6 bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 border-0 text-sm px-4 py-2">
+                <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 border-0 text-sm px-4 py-2">
                   <Crown className="w-4 h-4 mr-2" />
                   Trusted by Fortune 500 Companies
                 </Badge>
+                <a 
+                  href="https://bolt.new" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center opacity-75 hover:opacity-100 transition-opacity"
+                >
+                  <Badge variant="outline" className="border-purple-500/30 text-purple-600 dark:text-purple-400 hover:border-purple-500/50 transition-colors cursor-pointer text-xs px-3 py-1">
+                    <svg className="h-3 w-3 mr-1.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Built with Bolt
+                  </Badge>
+                </a>
               </motion.div>
               
               <motion.h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 mt-6 leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -978,10 +1007,25 @@ export default function LandingPage({ onAuth }: LandingPageProps) {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8"
               >
-                <Badge className="bg-white/20 text-white border-white/20 mb-6 px-4 py-2">
+                <Badge className="bg-white/20 text-white border-white/20 mb-4 px-4 py-2">
                   <Rocket className="w-4 h-4 mr-2" />
                   Join 500+ Enterprise Customers
                 </Badge>
+                <div className="flex justify-center">
+                  <a 
+                    href="https://bolt.new" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center opacity-60 hover:opacity-90 transition-opacity"
+                  >
+                    <Badge variant="outline" className="border-white/20 text-white/80 hover:border-white/30 hover:text-white transition-colors cursor-pointer text-xs">
+                      <svg className="h-3 w-3 mr-1.5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                      Built with Bolt
+                    </Badge>
+                  </a>
+                </div>
               </motion.div>
               
               <h2 className="text-4xl lg:text-6xl font-bold mb-6">
@@ -1162,6 +1206,19 @@ export default function LandingPage({ onAuth }: LandingPageProps) {
                     <Shield className="h-3 w-3 mr-1" />
                     SOC 2 Certified
                   </Badge>
+                  <a 
+                    href="https://bolt.new" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center"
+                  >
+                    <Badge variant="outline" className="border-purple-600 text-purple-400 hover:border-purple-500 hover:text-purple-300 transition-colors cursor-pointer">
+                      <svg className="h-3 w-3 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                      Built with Bolt
+                    </Badge>
+                  </a>
                 </div>
               </div>
             </div>

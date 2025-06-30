@@ -10,6 +10,10 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
   },
+  // Enable experimental features for better SSR handling
+  experimental: {
+    esmExternals: false,
+  },
   // Suppress React DevTools warning in development
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {

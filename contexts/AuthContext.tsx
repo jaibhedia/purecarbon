@@ -18,6 +18,19 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
+  
+  // Handle SSR gracefully
+  if (typeof window === 'undefined') {
+    // During SSR, return a default state
+    return {
+      user: null,
+      loading: true,
+      login: async () => {},
+      signup: async () => {},
+      logout: async () => {},
+    };
+  }
+  
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
@@ -68,7 +81,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       setUser(data.user);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('user', JSON.stringify(data.user));
+      }
     } catch (error) {
       console.error('Login error:', error);
       throw error;
@@ -106,12 +121,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
 
       setUser(null);
-      localStorage.removeItem('user');
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('user');
+      }
     } catch (error) {
       console.error('Logout error:', error);
       // Still clear local state even if server request fails
       setUser(null);
-      localStorage.removeItem('user');
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('user');
+      }
     }
   };
 
