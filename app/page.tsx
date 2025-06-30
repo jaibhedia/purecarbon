@@ -9,9 +9,6 @@ import SignIn from '@/components/SignIn';
 import SignUp from '@/components/SignUp';
 import { AuthProvider, useAuth } from '@/contexts/AuthContext';
 
-// Prevent static generation for this page during build
-export const dynamic = 'force-dynamic';
-
 function HomeContent() {
   const { user, loading, logout } = useAuth();
   const [showSignIn, setShowSignIn] = useState(false);

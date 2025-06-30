@@ -36,7 +36,11 @@ export default function Error({
             Try Again
           </Button>
           <Button 
-            onClick={() => window.location.href = '/'}
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.location.href = '/';
+              }
+            }}
             className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
           >
             <Home className="h-4 w-4" />
@@ -47,6 +51,3 @@ export default function Error({
     </div>
   );
 }
-
-// Prevent static generation
-export const dynamic = 'force-dynamic';
