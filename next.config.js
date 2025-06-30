@@ -7,12 +7,15 @@ const nextConfig = {
     unoptimized: true,
     domains: ['localhost'],
   },
-  env: {
-    NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
-  },
-  // Enable experimental features for better SSR handling
+  // Force server-side rendering for all pages to avoid static generation issues
+  output: 'standalone',
+  // Disable static optimization
   experimental: {
     esmExternals: false,
+    forceSwcTransforms: true,
+  },
+  env: {
+    NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
   },
   // Suppress React DevTools warning in development
   compiler: {

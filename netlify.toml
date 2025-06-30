@@ -5,16 +5,16 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect all requests to Next.js
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # API routes should be handled by serverless functions
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
+  status = 200
+
+# Let Next.js handle all other routes
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/___netlify-handler"
   status = 200
 
 # Caching headers for static assets
