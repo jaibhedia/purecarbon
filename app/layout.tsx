@@ -4,9 +4,6 @@ import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-// Prevent static generation for layout
-export const dynamic = 'force-dynamic';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

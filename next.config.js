@@ -17,12 +17,15 @@ const nextConfig = {
       exclude: ['error'],
     } : false,
   },
-  // Fix for Netlify deployment - disable static generation
+  // Use standalone for better Netlify compatibility
   output: 'standalone',
+  distDir: '.next',
+  poweredByHeader: false,
+  // Configure for Netlify deployment
   experimental: {
     esmExternals: false,
   },
-  // Webpack configuration to handle module resolution
+  // Webpack configuration
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -30,8 +33,18 @@ const nextConfig = {
         fs: false,
         net: false,
         tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
       };
     }
+    
     return config;
   },
 };
