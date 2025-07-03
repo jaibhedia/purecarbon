@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { RefreshCw, Home } from 'lucide-react';
 
+// Prevent static generation for error page
+export const dynamic = 'force-dynamic';
+
 export default function Error({
   error,
   reset,

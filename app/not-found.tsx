@@ -2,6 +2,9 @@ import { Button } from '@/components/ui/button';
 import { Home, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+// Prevent static generation for error page
+export const dynamic = 'force-dynamic';
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950">

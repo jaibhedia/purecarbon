@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.bolt
+test-app.sh
+test-auth.sh
+test-dashboard.sh
+test-payment.sh
+test.resources.sh
+test-unicorn-features.sh
+test-warnings.sh
